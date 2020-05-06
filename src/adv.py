@@ -65,7 +65,9 @@ while(user_input != "q"):
     print("\nYour options are:\n1: Look Around\n2: Travel\nq: Quit game")
     user_input = input("What do you do? Please enter number.\n")
 '''
-player1 = Player("John", "outside")
+print('outside:', room["outside"].roomName, room["outside"].roomDesc)
+
+player1 = Player(name="John", room=room["outside"])
 
 
 while True:
