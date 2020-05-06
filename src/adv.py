@@ -22,7 +22,6 @@ chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south."""),
 }
 
-
 # Link rooms together
 
 room['outside'].n_to = room['foyer']
@@ -39,7 +38,7 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
-
+ #Is
 # Write a loop that:
 #
 # * Prints the current room name
@@ -50,10 +49,9 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
-user_input = ""
 
-player1 = Player(name="John",room=room['outside'])
 
+'''
 def lookAround():
     return(player1.room.desc)
 
@@ -66,5 +64,36 @@ while(user_input != "q"):
         player1.travel()
     print("\nYour options are:\n1: Look Around\n2: Travel\nq: Quit game")
     user_input = input("What do you do? Please enter number.\n")
+'''
+player1 = Player("John", "outside")
 
 
+while True:
+    # print current room name
+    print("Current Room: ", player1.get_room())
+
+    # Prints the current description (the textwrap module might be useful here).
+    print(room['outside'])
+
+    # Waits for user input and decides what to do.
+
+    choice = input("Your options are: \nn: North\ns: South\ne: East\nw: West\nq: Quit\n")
+
+    if choice == "q":
+        print("Thanks for playing!")
+    
+    try:
+        if(choice == "1"):
+            pass
+        elif (choice == "2" and player1.room.n_to != None):
+            player1.room = player1.room.n_to.name
+        elif(choice == "3" and player1.room.e_to != None):
+            player1.room = player1.room.e_to.name
+        elif(choice == "4" and player1.room.s_to != None):
+            player1.room = player1.room.s_to.name
+        elif(choice == "5" and player1.room.w_to != None):
+            player1.room = player1.room.w_to.name
+        else:
+            print("You can't go that way")
+    except ValueError:
+        print("Please enter your choice as a number")

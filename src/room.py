@@ -8,3 +8,4 @@ class Room:
         self.s_to = s_to
         self.w_to = w_to
         self.e_to = e_to
+
