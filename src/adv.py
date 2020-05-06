@@ -51,51 +51,91 @@ room['treasure'].s_to = room['narrow']
 # If the user enters "q", quit the game.
 
 
-'''
-def lookAround():
-    return(player1.room.desc)
-
-print(f"You open your eyes to {player1.room}")
-while(user_input != "q"):
-
-    if(user_input == "1"):
-        print(lookAround())
-    elif(user_input == "2"):
-        player1.travel()
-    print("\nYour options are:\n1: Look Around\n2: Travel\nq: Quit game")
-    user_input = input("What do you do? Please enter number.\n")
-'''
 print('outside:', room["outside"].roomName, room["outside"].roomDesc)
 
 player1 = Player(name="John", room=room["outside"])
-
 
 while True:
     # print current room name
     print("Current Room: ", player1.get_room())
 
     # Prints the current description (the textwrap module might be useful here).
-    print(room['outside'])
+    print(f"\n** {player1.get_roomDesc()} **\n")
 
     # Waits for user input and decides what to do.
-
     choice = input("Your options are: \nn: North\ns: South\ne: East\nw: West\nq: Quit\n")
-
+    
     if choice == "q":
         print("Thanks for playing!")
+        break
     
     try:
-        if(choice == "1"):
-            pass
-        elif (choice == "2" and player1.room.n_to != None):
-            player1.room = player1.room.n_to.name
-        elif(choice == "3" and player1.room.e_to != None):
-            player1.room = player1.room.e_to.name
-        elif(choice == "4" and player1.room.s_to != None):
-            player1.room = player1.room.s_to.name
-        elif(choice == "5" and player1.room.w_to != None):
-            player1.room = player1.room.w_to.name
+        if(choice == "n" and player1.room.dir_exists(choice)):
+            player1.room = player1.room.n_to
+        elif (choice == "s" and player1.room.dir_exists(choice)):
+            player1.room = player1.room.n_to
+        elif(choice == "e" and player1.room.dir_exists(choice)):
+            player1.room = player1.room.n_to
+        elif(choice == "w" and player1.room.dir_exists(choice)):
+            player1.room = player1.room.n_to
         else:
             print("You can't go that way")
     except ValueError:
-        print("Please enter your choice as a number")
+        print("Invalid Response")
+
+#     def one():
+#     return "January"
+ 
+# def two():
+#     return "February"
+ 
+# def three():
+#     return "March"
+ 
+# def four():
+#     return "April"
+ 
+# def five():
+#     return "May"
+ 
+# def six():
+#     return "June"
+ 
+# def seven():
+#     return "July"
+ 
+# def eight():
+#     return "August"
+ 
+# def nine():
+#     return "September"
+ 
+# def ten():
+#     return "October"
+ 
+# def eleven():
+#     return "November"
+ 
+# def twelve():
+#     return "December"
+ 
+ 
+# def numbers_to_months(argument):
+#     switcher = {
+#         1: one,
+#         2: two,
+#         3: three,
+#         4: four,
+#         5: five,
+#         6: six,
+#         7: seven,
+#         8: eight,
+#         9: nine,
+#         10: ten,
+#         11: eleven,
+#         12: twelve
+#     }
+#     # Get the function from switcher dictionary
+#     func = switcher.get(argument, lambda: "Invalid month")
+#     # Execute the function
+#       print func()

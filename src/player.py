@@ -7,4 +7,8 @@ class Player():
         self.room = room
         
     def get_room(self):
-        return self.room
+        return self.room.roomName
+    
+    def get_roomDesc(self):
+        return self.room.roomDesc
+    

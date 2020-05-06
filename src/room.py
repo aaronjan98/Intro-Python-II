@@ -8,4 +8,15 @@ class Room:
         self.s_to = s_to
         self.w_to = w_to
         self.e_to = e_to
-        
+
+    def dir_exists(self,dir):
+        if dir == "n":
+            return self.n_to != None
+        elif dir =="s":
+            return self.s_to != None
+        elif dir =="w":
+            return self.w_to != None
+        elif dir == "e":
+            return self.e_to != None
+        else:
+            return False
