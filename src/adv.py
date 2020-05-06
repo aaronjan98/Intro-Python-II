@@ -1,4 +1,5 @@
 from room import Room
+from player import Player
 
 # Declare all the rooms
 
@@ -49,3 +50,21 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+user_input = ""
+
+player1 = Player(name="John",room=room['outside'])
+
+def lookAround():
+    return(player1.room.desc)
+
+print(f"You open your eyes to {player1.room}")
+while(user_input != "q"):
+
+    if(user_input == "1"):
+        print(lookAround())
+    elif(user_input == "2"):
+        player1.travel()
+    print("\nYour options are:\n1: Look Around\n2: Travel\nq: Quit game")
+    user_input = input("What do you do? Please enter number.\n")
+
+
