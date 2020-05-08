@@ -13,6 +13,8 @@ Up to this point, you've gotten your feet wet by working on a bunch of small Pyt
 
 * Practice writing code that conforms to a specification
 
+a=[1,2,3] b=a b=a[:]
+b=a.copy()
 
 ## MVP
 
@@ -113,8 +115,7 @@ The `/src` directory contains the files `adv.py`, which is where the main logic 
   opposite of `get`/`take`.
 
 * Add the `i` and `inventory` commands that both show a list of items currently
-  carried by the player.
-
+  carried by the player. 
 
 ## Stretch Goals
 
